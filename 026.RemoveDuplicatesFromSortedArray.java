@@ -1,8 +1,8 @@
-Problem 26 Remove Duplicates from Sorted Array
+// Problem 26 Remove Duplicates from Sorted Array
 
 /* remember constant memory means that it only allows change number in array and 
-// outputs the changed array by length of index. This answer uses a subtle way of
-//changing positions.
+ * outputs the changed array by length of index. This answer uses a subtle way of
+ * changing positions. */
 
 public class Solution {
     public int removeDuplicates(int[] nums) {

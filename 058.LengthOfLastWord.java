@@ -1,6 +1,6 @@
-Problem 58 Length of Last Word
+// Problem 58 Length of Last Word
 
-/* general method
+/* general method */
 public class Solution {
     public int lengthOfLastWord(String s) {
         if(s.length() == 0)
@@ -22,7 +22,7 @@ public class Solution {
     }
 }
 
-/* Use trim() method two delete ' ' in head and end.
+/* Use trim() method two delete ' ' in head and end. */
 public class Solution {
     public int lengthOfLastWord(String s) {
         if(s.length() == 0)
@@ -39,7 +39,7 @@ public class Solution {
 }
 
 
-/* A brilliant solution. Use trim() method and lastIndexOf() method.
+/* A brilliant solution. Use trim() method and lastIndexOf() method. */
 public class Solution {
 	public int lengthOfLastWord(String s) {
     	return s.trim().length()-s.trim().lastIndexOf(" ")-1;

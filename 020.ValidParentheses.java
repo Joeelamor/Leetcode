@@ -1,7 +1,7 @@
-Problem 20 Valid Parentheses
+// Problem 20 Valid Parentheses
 
 /* This is a good solution that I learned from other's.(In this kind of question, 
-// we need to use stack)
+ * we need to use stack) */
 
 public class Solution {
     public boolean isValid(String s) {

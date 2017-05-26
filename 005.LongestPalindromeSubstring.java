@@ -1,7 +1,7 @@
-Problem 5 Longest Palindrome Substring
+// Problem 5 Longest Palindrome Substring
 
-/*Time limit exceeded*/
-//this answer using old method forces to solve problem, but time limit exceeds.
+/* Time limit exceeded
+ * this answer using old method forces to solve problem, but time limit exceeds. */
 
 public class Solution {
     public String longestPalindrome(String s) {

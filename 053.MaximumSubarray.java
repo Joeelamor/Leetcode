@@ -1,6 +1,6 @@
-Problem 53 Maximum Subarray
+// Problem 53 Maximum Subarray
 
-/* Use Kadane's algorithm
+/* Use Kadane's algorithm */
 
 public class Solution {
     public int maxSubArray(int[] nums) {

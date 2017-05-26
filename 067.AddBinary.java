@@ -1,6 +1,6 @@
-Problem 67 Add Binary
+// Problem 67 Add Binary
 
-/* In this problem, it is the most important that how to deal with carry problem.
+/* In this problem, it is the most important that how to deal with carry problem. */
 
 public class Solution {
     public String addBinary(String a, String b) {

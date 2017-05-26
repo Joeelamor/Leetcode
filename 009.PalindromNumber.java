@@ -1,4 +1,4 @@
-Problem 9 Palindrome Number
+// Problem 9 Palindrome Number
 
 public class Solution {
     public boolean isPalindrome(int x) {

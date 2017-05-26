@@ -1,6 +1,6 @@
-Problem 11 Container With Most Water
+// Problem 11 Container With Most Water
 
-/* wrong answer ---- time limit exceeded
+/* wrong answer ---- time limit exceeded */
 
 public class Solution {
     public int maxArea(int[] height) {
@@ -24,8 +24,8 @@ public class Solution {
 }
 
 /* right answer
-// in this answer, I use two pointers left and right from beginner and ender to
-// move, get max area.
+ * in this answer, I use two pointers left and right from beginner and ender to
+ * move, get max area. */
 
 
 public class Solution {

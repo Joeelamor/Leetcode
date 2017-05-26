@@ -1,6 +1,6 @@
-Problem 12 Integer to Roman
+// Problem 12 Integer to Roman
 
-/* It is the most important that you should know Roman numerals. lol...
+/* It is the most important that you should know Roman numerals. lol... */
 
 public class Solution {
     public String intToRoman(int num) {

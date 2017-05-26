@@ -1,7 +1,7 @@
-Problem 35 Search Insert Position
+// Problem 35 Search Insert Position
 
 /* If there is no target in array, we should consider many circumstances where
-// the position target should be inserted in.
+ * the position target should be inserted in. */
 
 public class Solution {
     public int searchInsert(int[] nums, int target) {

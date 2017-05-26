@@ -1,6 +1,6 @@
-Problem 14  Longest Common Prefix
+// Problem 14  Longest Common Prefix
 
-/* In this problem, we use indexOf() method to find if there exist common prefix
+/* In this problem, we use indexOf() method to find if there exist common prefix */
 
 public class Solution {
     public String longestCommonPrefix(String[] strs) {

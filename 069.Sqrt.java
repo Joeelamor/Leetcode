@@ -1,6 +1,6 @@
-Problem 69 Sqrt(x)
+// Problem 69 Sqrt(x)
 
-/* A stupid and slow method
+/* A stupid and slow method */
 
 public class Solution {
     public int mySqrt(int x) {

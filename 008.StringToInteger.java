@@ -1,4 +1,4 @@
-Problem 8 String to Integer(atoi)
+// Problem 8 String to Integer(atoi)
 
 public class Solution {
     public int myAtoi(String str) {

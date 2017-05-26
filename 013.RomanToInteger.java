@@ -1,7 +1,7 @@
-Problem 13 Roman to Integer
+// Problem 13 Roman to Integer
 
 /* in this problem, we need to focus on IV, IX or XL and so on that a smaller number 
-//is before a bigger number.
+ * is before a bigger number. */
 
 public class Solution {
     public int romanToInt(String s) {

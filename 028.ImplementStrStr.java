@@ -1,7 +1,7 @@
-Problem 28 Implement strStr()
+// Problem 28 Implement strStr()
 
 /* In this question, it also needs to use indexOf() method to check the first 
-// index.
+ * index. */
 public class Solution {
     public int strStr(String haystack, String needle) {
         int i = 0;

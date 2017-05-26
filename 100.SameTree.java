@@ -1,4 +1,4 @@
-Problem 100 Same Tree
+// Problem 100 Same Tree
 
 /**
  * Definition for a binary tree node.
