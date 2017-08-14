@@ -11,15 +11,15 @@
  * 5. When the algorithm terminates, the numbers remaining not marked in the list are all 
  * 	the primes below n. */
 
- public class Solution {
+public class Solution {
     public int countPrimes(int n) {
         int count = 0;
-        boolean [] isPrime = new boolean[n];
+        boolean [] notPrime = new boolean[n];
         for(int i = 2; i < n; i++) {
-            if(isPrime[i] == false) {
+            if(notPrime[i] == false) {
                 count++;
                 for(int j = 2; i * j < n; j++) {
-                    isPrime[i * j] = true;
+                    notPrime[i * j] = true;
                 }
             }
         }
