@@ -1,6 +1,6 @@
 // Problem 448 Find All Numbers Disappeared in an Array
 
-// Use number as index.
+// Use number as index. Use no space and O(N) time.
 public class Solution {
     public List<Integer> findDisappearedNumbers(int[] nums) {
         List<Integer> list = new ArrayList<>();
