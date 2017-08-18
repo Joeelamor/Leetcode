@@ -9,6 +9,7 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+// Do a reverse inorder tranverse the nodes of the tree in descending order.
 class Solution {
     int sum = 0;
     public TreeNode convertBST(TreeNode root) {
