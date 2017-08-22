@@ -17,16 +17,16 @@ class Solution {
         if(root == null)
             return new int[0];
         List<Integer> list = new ArrayList<>();
-        inorderTranverse(root, list);
+        inorderTraverse(root, list);
         int []res = new int[list.size()];
         for(int i = 0; i < list.size(); i++) 
             res[i] = list.get(i);
         return res;
     }
-    public void inorderTranverse(TreeNode root, List<Integer> list) {
+    public void inorderTraverse(TreeNode root, List<Integer> list) {
         if(root == null)
             return;
-        inorderTranverse(root.left, list);
+        inorderTraverse(root.left, list);
         if(prev != null) {
             if(root.val == prev)
                 count++;
@@ -41,6 +41,6 @@ class Solution {
         else if(count == max)
             list.add(root.val);
         prev = root.val;
-        inorderTranverse(root.right, list);
+        inorderTraverse(root.right, list);
     }
 }
