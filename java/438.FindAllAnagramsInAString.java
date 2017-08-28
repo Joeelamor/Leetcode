@@ -1,6 +1,6 @@
 // Problem 438 Find All Anagrams in a String
 
-// A stupid method
+// A stupid method: O(n^2) time
 public class Solution {
     public List<Integer> findAnagrams(String s, String p) {
         List<Integer> res = new ArrayList<>();
@@ -26,5 +26,37 @@ public class Solution {
                 return false;
         }
         return true;
+    }
+}
+
+
+// Method 2: O(n) time
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        List<Integer> res = new ArrayList<>();
+        int []arr = new int[26];
+        if(s == null || p == null || s.length() < p.length())
+            return res;
+        for(char c: p.toCharArray())
+            arr[c - 'a']++;
+        int left = 0, right = 0, count = p.length();
+        while(right < s.length()) {
+            if(arr[s.charAt(right) - 'a'] >= 1) {
+               count--;
+            }
+            arr[s.charAt(right) - 'a']--;
+            right++;
+                
+            if(count == 0)
+                res.add(left);
+            if(right - left == p.length()) {
+                if(arr[s.charAt(left) - 'a'] >= 0) {
+                    count++;
+                }
+            arr[s.charAt(left) - 'a']++;
+            left++;                    
+            }
+        }
+        return res;
     }
 }
