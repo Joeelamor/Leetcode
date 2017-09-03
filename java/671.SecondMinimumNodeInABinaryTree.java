@@ -62,3 +62,33 @@ class Solution {
 }
 
 // Method 2: A normal method: 
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    int min, secMin;
+    public int findSecondMinimumValue(TreeNode root) {
+        if(root == null)
+            return -1;
+        min = root.val;
+        secMin = Integer.MAX_VALUE;
+        dfs(root);
+        return (secMin == min || secMin == Integer.MAX_VALUE)? -1: secMin;
+    }
+    public void dfs(TreeNode node) {
+        if(node.val != min) {
+            secMin = Math.min(secMin, node.val);
+            return;
+        }
+        if(node.left != null)
+            dfs(node.left);
+        if(node.right != null)
+            dfs(node.right);
+    }
+}
