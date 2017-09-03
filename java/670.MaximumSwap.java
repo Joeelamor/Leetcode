@@ -1,46 +1,24 @@
 // Problem 670 Maximum Swap
 
-// Unfinished
+// First need to transfer num to a char array, then change the position of two 
+// numbers, finally transfer char array to num.
 class Solution {
     public int maximumSwap(int num) {
-        if(num < 10)
-            return num;
-        int count = 0;
-        while(num != 0) {
-            count++;
-            num /= 10;
+        char []digit = Integer.toString(num).toCharArray();
+        int []bucket = new int[10];
+        for(int i = 0; i < digit.length; i++) {
+            bucket[digit[i] - '0'] = i;
         }
-        int []nums = new int[count];
-        int i = 0;
-        while(num != 0) {
-            nums[i] = num % 10;
-            i++;
-            num /= 10;
-        }
-        int []newArray = nums.clone();
-        Arrays.sort(newArray);
-        return compare(nums, newArray);
-    }
-    
-    public int compare(int[] nums, int[] newArray) {
-        if(nums[nums.length - 1] >= newArray[newArray.length - 1]) {
-            if(nums.length - 1 > 0)
-                return compare(Arrays.copyOfRange(nums, 0, nums.length - 1), Arrays.copyOfRange(newArray, 0, nums.length - 1));
-        }
-        else {
-            int tmp = nums[nums.length - 1];
-            int j = 0;
-            for(int m = 0; m < nums.length; m++) {
-                if(nums[m] == newArray[nums.length - 1])
-                    j = m;
+        for(int i = 0 ; i < digit.length; i++) {
+            for(int j = 9; j > digit[i] - '0'; j--) {
+                if(bucket[j] > i) {
+                    char tmp = digit[i];
+                    digit[i] = digit[bucket[j]];
+                    digit[bucket[j]] = tmp;
+                    return Integer.valueOf(new String(digit));
+                }
             }
-            nums[nums.length - 1] = newArray[nums.length - 1];
-            nums[j] = tmp;            
         }
-        int res = 0;
-        for(int l = nums.length - 1; l >= 0; l--) {
-           res = res * 10 + nums[l];
-        }
-        return res;
+        return num;
     }
 }
