@@ -6,6 +6,7 @@ public class Solution {
         Integer max2 = null;
         Integer max3 = null;
         for(Integer num: nums) {
+            // max1.equals(num) is wrong.
             if(num.equals(max1) || num.equals(max2) || num.equals(max3))
                 continue;
             if(max1 == null || num > max1) {
