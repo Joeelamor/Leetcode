@@ -20,7 +20,7 @@ class Solution {
                     }
                 }
                 if(i + 1 < M.length) {
-                    sum += M[i+1][j];661
+                    sum += M[i+1][j];
                     count++;
                     if(j - 1 >= 0) {
                         sum += M[i+1][j-1];
