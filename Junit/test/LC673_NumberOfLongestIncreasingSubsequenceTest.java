@@ -8,6 +8,6 @@ public class LC673_NumberOfLongestIncreasingSubsequenceTest {
         int []input = new int[]{1, 2, 4, 3, 5, 4, 7, 2};
         LC673_NumberOfLongestIncreasingSubsequence solution = new LC673_NumberOfLongestIncreasingSubsequence();
 
-        assertEquals(4, solution.findNumberOfLIS(input));
+        assertEquals(3, solution.findNumberOfLIS(input));
     }
 }
