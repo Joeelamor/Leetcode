@@ -20,6 +20,7 @@ class Solution {
             int mid = (right + left) / 2;
             if(nums[mid] == target)
                 return mid;
+            // Find continuous ascending array
             if(nums[left] <= nums[mid]) {
                 if(target >= nums[left] && target < nums[mid])
                     right = mid - 1;
