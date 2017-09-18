@@ -1,6 +1,6 @@
 // Problem 17 Letter Combination Of A Phone Number
 
-// Use BFS
+// Use DFS
 class Solution {
     public String[] keys = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
     public List<String> letterCombinations(String digits) {
