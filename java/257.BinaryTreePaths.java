@@ -18,6 +18,9 @@ public class Solution {
     }
     
     public void findPath(TreeNode root, String path, List<String> answer) {
+        /* if root.left and root.right are null, it means the node is a leaf, then we can add 
+         * the string into result list.
+         */
         if(root.left == null && root.right == null)
             answer.add(path + root.val);
         if(root.left != null)
