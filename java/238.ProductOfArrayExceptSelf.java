@@ -1,5 +1,6 @@
 // Problem 238 Product Of Array Except Self
 
+/* In this problem, we can not use divide, because the number in array may be zero. */
 class Solution {
     public int[] productExceptSelf(int[] nums) {
         int []res = new int[nums.length];
