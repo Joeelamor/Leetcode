@@ -6,12 +6,12 @@ class Solution {
     public int maximumSwap(int num) {
         char []digit = Integer.toString(num).toCharArray();
         int []bucket = new int[10];
-        for(int i = 0; i < digit.length; i++) {
+        for (int i = 0; i < digit.length; i++) {
             bucket[digit[i] - '0'] = i;
         }
-        for(int i = 0 ; i < digit.length; i++) {
-            for(int j = 9; j > digit[i] - '0'; j--) {
-                if(bucket[j] > i) {
+        for (int i = 0 ; i < digit.length; i++) {
+            for (int j = 9; j > digit[i] - '0'; j--) {
+                if (bucket[j] > i) {
                     char tmp = digit[i];
                     digit[i] = digit[bucket[j]];
                     digit[bucket[j]] = tmp;
