@@ -1,7 +1,7 @@
 // Problem 122 Best Time to Buy and Sell Stock II
 
-// Just remember you may complete as many transactions as you like but you must 
-// sell the stock before you buy again..
+// Just count all positive differences between next index and current index and add them all.
+
 public class Solution {
     public int maxProfit(int[] prices) {
         int total = 0;
