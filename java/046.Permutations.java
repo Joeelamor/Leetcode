@@ -9,13 +9,15 @@ class Solution {
     }
     public void backTracking(int[] nums, List<List<Integer>> res, List<Integer> list) {
         if (list.size() == nums.length)
-            res.add(new ArrayList<>(list));
-        for (int i = 0; i < nums.length; i++) {
-            if (list.contains(nums[i]))
-                continue;
-            list.add(nums[i]);
-            backTracking(nums, res, list);
-            list.remove(list.size() - 1);
+            res.add(new ArrayList<>(list)); 
+        else {
+            for (int i = 0; i < nums.length; i++) {
+                if (list.contains(nums[i]))
+                    continue;
+                list.add(nums[i]);
+                backTracking(nums, res, list);
+                list.remove(list.size() - 1);
+            }
         }
     }
 }
