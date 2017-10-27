@@ -32,3 +32,33 @@ class Solution {
         return res;
     }
 }
+
+// Use recursion
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (root == null)
+            return res;
+        help(root, res, 0);
+        return res;
+    }
+    public void help(TreeNode node, List<List<Integer>> res, int level) {
+        if (node == null)
+            return;
+        if (level >= res.size()) {
+            res.add(new ArrayList<Integer>());
+        }
+        res.get(level).add(node.val);
+        help(node.left, res, level + 1);
+        help(node.right, res, level + 1);
+    }
+}
