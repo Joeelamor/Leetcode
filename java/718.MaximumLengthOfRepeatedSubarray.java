@@ -1,4 +1,4 @@
-// Problem 718 Maximum Length Of Repeated Subarray
+// Problem 718 Maximum Length Of Repeated SubArray
 
 // In this problem, I use DP to record each position the maximum length of repeated subarray.
 class Solution {
