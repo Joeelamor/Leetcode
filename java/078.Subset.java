@@ -1,5 +1,6 @@
 // Problem 78 Subset
 
+// Method 1: Iterative
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
@@ -18,7 +19,7 @@ class Solution {
     }
 }
 
-// Use backtracking
+// Method 2: Use backtracking (DFS)
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> list = new ArrayList<>();
