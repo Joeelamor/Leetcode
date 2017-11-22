@@ -30,18 +30,11 @@ public class Solution {
 // Other idea
 class Solution {
     public int searchInsert(int[] nums, int target) {
-        int i = 0, n = nums.length - 1;
-        while (i <= n) {
-            if (nums[i] == target)
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] >= target){
                 return i;
-            else {
-                if (nums[i] > target) {
-                    return i;
-                } else {
-                    i++;
-                }
             }
         }
-        return n + 1;
+        return nums.length;
     }
 }
