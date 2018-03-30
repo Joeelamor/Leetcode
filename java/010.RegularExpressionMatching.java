@@ -1,5 +1,6 @@
 // Problem 10 Regular Expression Matching
 
+// Method 1: use two-dimension array
 class Solution {
     public boolean isMatch(String s, String p) {
         if (s == null || p == null) {
@@ -29,5 +30,27 @@ class Solution {
             }
         }
         return dp[s.length()][p.length()];
+    }
+}
+
+// Method 2: use one-dimension array
+class Solution {
+    public boolean isMatch(String s, String p) {
+        boolean [] dp = new boolean[s.length() + 1];
+        dp[s.length()] = true;
+        for (int i = p.length() - 1;i >= 0; i--) {
+            if (p.charAt(i) == '*'){
+                for (int j = s.length()-1; j >= 0; j--) {
+                    dp[j] = dp[j] || (dp[j + 1] && (s.charAt(j) == p.charAt(i - 1) || p.charAt(i - 1) == '.'));
+                }
+                i--;
+            } else {
+                for (int j = 0; j < s.length(); j++){
+                    dp[j] = dp[j + 1] && (p.charAt(i) == s.charAt(j) || p.charAt(i) == '.');
+                }
+                dp[s.length()] = false;
+            }
+        }
+        return dp[0];
     }
 }
