@@ -46,7 +46,6 @@ class Solution {
             if (tmp != 0.0)
                 break;
         }
-        set.remove(start);
         return tmp;
     }
 }
