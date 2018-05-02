@@ -23,6 +23,8 @@ class Solution {
                 index = i;
         }
         root.left = buildTree(preStart + 1, inStart, index - 1, preorder, inorder);
+        // the treenodes between inIndex and inStart are all left subtree nodes, 
+        // which means in the preorder case, these nodes all should be in front of right subtree root
         root.right = buildTree(preStart + index - inStart + 1, index + 1, inEnd, preorder, inorder);
         return root;
     }
