@@ -1,8 +1,9 @@
 // Problem 551 Student Attendance Record I
 
+// char[] is like int[]
 class Solution {
     public boolean checkRecord(String s) {
-        char []c = new char[1];
+        int[] c = new int[1];
         for(int i = 0; i < s.length(); i++) {
             if(s.charAt(i) == 'A') {
                 c[0]++;
