@@ -9,6 +9,7 @@ public class Solution extends GuessGame {
     public int guessNumber(int n) {
         int head = 1, tail = n;
         while(head < tail) {
+        	// Use head + (tail-head)/2 not (head + tail) / 2 to avoid exceed int bound.
             int mid = head + (tail-head)/2;
             if(guess(mid) == 0)
                 return mid;
