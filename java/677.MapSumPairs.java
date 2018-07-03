@@ -92,3 +92,58 @@ class MapSum {
  * obj.insert(key,val);
  * int param_2 = obj.sum(prefix);
  */
+
+
+// Method 4: use trie
+
+class MapSum {
+    TrieNode root;
+    /** Initialize your data structure here. */
+    public MapSum() {
+        root = new TrieNode(0);
+    }
+    
+    public void insert(String key, int val) {
+        TrieNode node = root;
+        for (int i = 0; i < key.length(); i++) {
+            if (node.children[key.charAt(i) - 'a'] == null)
+                node.children[key.charAt(i) - 'a'] = new TrieNode(val);
+            else
+                node.children[key.charAt(i) - 'a'].sum += val; // update all pre nodes' sum along the path
+            node = node.children[key.charAt(i) - 'a'];
+        }
+        if (node.isWord) { // key existed
+            node.isWord = false;
+            insert(key, -node.val); // update all pre nodes' sum along the path
+        }
+        node.val = val;
+        node.isWord = true;
+    }
+    
+    public int sum(String prefix) {
+        TrieNode node = root;
+        for (int i = 0; i < prefix.length(); i++) {
+            node = node.children[prefix.charAt(i) - 'a'];
+            if (node == null)
+                return 0;
+        }
+        return node.sum;
+    }
+
+    class TrieNode {
+        int val, sum;
+        boolean isWord;
+        TrieNode[] children;
+        public TrieNode(int val) {
+            sum = this.val = val;
+            children = new TrieNode[26];
+        }
+    }
+}
+
+/**
+ * Your MapSum object will be instantiated and called as such:
+ * MapSum obj = new MapSum();
+ * obj.insert(key,val);
+ * int param_2 = obj.sum(prefix);
+ */
