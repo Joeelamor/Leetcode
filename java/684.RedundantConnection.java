@@ -13,21 +13,15 @@ class Solution {
         for (int i = 0; i < edges.length; i++) {
             int a = findParent(parent, edges[i][0]);
             int b = findParent(parent, edges[i][1]);
-            // If two points' parents are same, then return the edge.
             if (a == b) {
                 index = i;
-            // If two points' parents are different, set the smaller value as parent.
             } else {
-                if (a > b) {
-                    parent[a] = b;
-                } else {
-                    parent[b] = a;
-                }
+                parent[a] = b;
+                
             }
         }
         return edges[index];
     }
-    // This function is used to find parent of a point, and return its parent.
     public int findParent(int []parent, int node) {
         while (parent[node] != node) {
             node = parent[node];
