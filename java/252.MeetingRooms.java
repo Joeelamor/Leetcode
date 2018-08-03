@@ -21,3 +21,21 @@ class Solution {
         return true;
     }
 }
+
+// override comparator function
+class Solution {
+    public boolean canAttendMeetings(Interval[] intervals) {
+        if (intervals.length <= 1)
+            return true;
+        // Sort the intervals by start time
+        Arrays.sort(intervals, new comparator<interval>() {
+        	public int compare(interval a, interval b) {
+        		return a.start - b.start;
+        	}
+        });
+        for (int i = 1; i < intervals.length; i++)
+            if (intervals[i-1].end > intervals[i].start)
+                return false;
+        return true;
+    }
+}
