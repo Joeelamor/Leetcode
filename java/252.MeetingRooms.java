@@ -28,8 +28,8 @@ class Solution {
         if (intervals.length <= 1)
             return true;
         // Sort the intervals by start time
-        Arrays.sort(intervals, new comparator<interval>() {
-        	public int compare(interval a, interval b) {
+        Arrays.sort(intervals, new Comparator<Interval>() {
+        	public int compare(Interval a, Interval b) {
         		return a.start - b.start;
         	}
         });
