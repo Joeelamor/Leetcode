@@ -12,9 +12,10 @@
 
 public class BSTIterator {
 
-    private Stack<TreeNode> stack = new Stack<TreeNode>();
+    private Deque<TreeNode> stack;
     
     public BSTIterator(TreeNode root) {
+    	stack = new ArrayDeque<>()
         pushAll(root);
     }
 
@@ -31,7 +32,10 @@ public class BSTIterator {
     }
     
     private void pushAll(TreeNode node) {
-        for (; node != null; stack.push(node), node = node.left);
+        while (node != null) {
+            stack.push(node);
+            node = node.left;
+        }
     }
 }
 
