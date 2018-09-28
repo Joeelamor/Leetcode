@@ -10,6 +10,7 @@ public class Solution extends Relation {
             if(knows(candidate, i))
                 candidate = i;
         }
+        // before index, all can't be celebrity, after index, index doesn't know anyone, they can't be celebrity either, because if any one is, index must know it.
         for(int i = 0; i < n; i++){
             if(i != candidate && (knows(candidate, i) || !knows(i, candidate))) return -1;
         }
