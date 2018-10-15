@@ -21,3 +21,35 @@ class Solution {
         return max;
     }
 }
+
+// Method 2: dp + binary search
+
+class Solution {
+    public int maxEnvelopes(int[][] envelopes) {
+        Arrays.sort(envelopes, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] a, int[] b) {
+                if (a[0] == b[0])
+                    return Integer.compare(b[1], a[1]);
+                else
+                    return Integer.compare(a[0], b[0]);
+            }
+        });
+        int[][] dp = new int[envelopes.length][2];
+        int size = 0;
+        for (int[] envelope : envelopes) {
+            int i = 0, j = size;
+            while (i != j) {
+                int mid = i + (j - i) / 2;
+                if (dp[mid][0] < envelope[0] && dp[mid][1] < envelope[1])
+                    i = mid + 1;
+                else
+                    j = mid;
+            }
+            dp[i] = envelope;
+            if (i == size)
+                size++;
+        }
+        return size;
+    }
+}
