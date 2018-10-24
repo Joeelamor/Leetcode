@@ -2,32 +2,22 @@
 
 class Solution {
     public int divide(int dividend, int divisor) {
-        int sign = 1;
-        if ((dividend > 0 && divisor < 0) || (dividend < 0 && divisor > 0))
-            sign = -1;
-        if (divisor == 0)
+        if (dividend == Integer.MIN_VALUE && divisor == -1)
             return Integer.MAX_VALUE;
-        long newDividend = Math.abs((long)dividend);
-        long newDivisor = Math.abs((long)divisor);
-        if ((newDividend < newDivisor) || newDividend == 0)
-            return 0;
-        long res = 0;
-        while (newDividend >= newDivisor) {
-            long tmp = newDivisor, i = 1;
-            while (newDividend >= (tmp << 1)) {
-                tmp <<= 1;
-                i <<= 1;
+        long a = Math.abs((long)dividend);
+        long b = Math.abs((long)divisor);
+        int res = 0;
+        while (a >= b) {
+            int shift = 0;
+            while (a >= (b << shift)) {
+                shift++;
             }
-            newDividend -= tmp;
-            res += i;
+            res += 1 << (shift - 1);
+            a -= b <<(shift - 1);
         }
-        if (res > Integer.MAX_VALUE) {
-            if (sign == 1)
-                return Integer.MAX_VALUE;
-            else
-                return Integer.MIN_VALUE;
-        } else {
-            return sign * (int)res;
-        }    
+        if ((dividend > 0 && divisor > 0) || (dividend < 0 && divisor < 0)) 
+            return res;
+        else 
+            return -res;
     }
 }
