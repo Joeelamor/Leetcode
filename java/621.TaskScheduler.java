@@ -25,3 +25,20 @@ class Solution {
         return time;
     }
 }
+
+// Method 2:
+class Solution {
+    public int leastInterval(char[] tasks, int n) {
+        int[] fre = new int[26];
+        for (char c : tasks)
+            fre[c - 'A']++;
+        Arrays.sort(fre);
+        int max = fre[25];
+        int len = (max - 1) * (n + 1);
+        for (int i = 24; i >= 0 && fre[i] > 0; i--) {
+            if (fre[i] == max)
+                len++;
+        }
+        return Math.max(len + 1, tasks.length);
+    }
+}
