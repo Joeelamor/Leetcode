@@ -23,21 +23,20 @@
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == 1) {
                     sb.setLength(0);
-                    helper(grid, i, j, 0, 0, sb);
+                    helper(grid, i, j, sb);
                     set.add(sb.toString());
                 }
             }
         }
         return set.size();
     }
-    public void helper(int[][] grid, int sx, int sy, int x, int y, StringBuilder sb) {
-        if (sx + x >= grid.length || sx + x < 0 || sy + y >= grid[0].length || sy + y < 0 || grid[sx + x][sy + y] == 0)
+    public void helper(int[][] grid, int x, int y, StringBuilder sb) {
+        if (x >= grid.length || x < 0 || y >= grid[0].length || y < 0 || grid[x][y] == 0)
             return;
-        grid[sx + x][sy + y] = 0;
-        sb.append(x).append(y);
-        helper(grid, sx, sy, x + 1, y, sb);
-        helper(grid, sx, sy, x - 1, y, sb);
-        helper(grid, sx, sy, x, y + 1, sb);
-        helper(grid, sx, sy, x, y - 1, sb); 
+        grid[x][y] = 0;
+        helper(grid, x + 1, y, sb.append('d'));
+        helper(grid, x - 1, y, sb.append('u'));
+        helper(grid, x, y + 1, sb.append('r'));
+        helper(grid, x,y - 1, sb.append('l')); 
     }
 }
