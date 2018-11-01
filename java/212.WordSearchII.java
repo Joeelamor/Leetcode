@@ -42,4 +42,57 @@ class Solution {
 }
 
 
+// Method 2 : Use Trie
+
+class Solution {
+    public List<String> findWords(char[][] board, String[] words) {
+        List<String> res = new ArrayList<>();
+        if (board.length == 0)
+            return res;
+        TrieNode root = buildTree(words);
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                helper(res, board, i, j, root);
+            }
+        }
+        return res;
+    }
+    
+    public void helper(List<String> res, char[][] board, int i, int j, TrieNode cur) {
+        if (i < 0 || j < 0 || i >= board.length || j >= board[0].length || board[i][j] == '#' || cur.children[board[i][j] - 'a'] == null)
+            return;
+        char c = board[i][j];
+        cur = cur.children[c - 'a'];
+        if (cur.word != null) {
+            res.add(cur.word);
+            cur.word = null;
+        }
+        board[i][j] = '#';
+        helper(res, board, i + 1, j, cur);
+        helper(res, board, i - 1, j, cur);
+        helper(res, board, i, j + 1, cur);
+        helper(res, board, i, j - 1, cur);
+        board[i][j] = c; 
+    }
+    
+    public TrieNode buildTree(String[] words) {
+        TrieNode root = new TrieNode();
+        for (String word : words) {
+            TrieNode cur = root;
+            for (char c : word.toCharArray()) {
+                if (cur.children[c - 'a'] == null)
+                    cur.children[c - 'a'] = new TrieNode();
+                cur = cur.children[c - 'a'];
+            }
+            cur.word = word;
+        }
+        return root;
+    }
+    class TrieNode {
+        TrieNode[] children = new TrieNode[26];
+        String word;
+    }
+}
+
+
 
