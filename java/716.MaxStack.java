@@ -2,29 +2,25 @@
 
 // Use two stacks
 class MaxStack {
-    Stack<Integer> stack;
-    Stack<Integer> helper;
+    Deque<Integer> stack;
+    Deque<Integer> maxStack;
     /** initialize your data structure here. */
     public MaxStack() {
-        stack = new Stack<>();
-        helper = new Stack<>();
+        stack = new ArrayDeque<>();
+        maxStack = new ArrayDeque<>();
     }
-     
+    
     public void push(int x) {
-        pushHelper(x);
-    }
-    private void pushHelper(int x) {
-        int tmpMax = helper.isEmpty() ? Integer.MIN_VALUE : helper.peek();
-        if (x > tmpMax) {
-            tmpMax = x;
-        }
+        if (maxStack.isEmpty() || x >= maxStack.peek())
+            maxStack.push(x);
         stack.push(x);
-        helper.push(tmpMax);
     }
     
     public int pop() {
-        helper.pop();
-        return stack.pop();
+        int x = stack.pop();
+        if (maxStack.peek() == x)
+            maxStack.pop();
+        return x;
     }
     
     public int top() {
@@ -32,26 +28,25 @@ class MaxStack {
     }
     
     public int peekMax() {
-        return helper.peek();
+        return maxStack.peek();
     }
     
     public int popMax() {
-        int max = helper.peek();
-        Stack<Integer> tmp = new Stack<>();
-        
+        int max = maxStack.peek();
+        Deque<Integer> cur = new ArrayDeque<>();
         while (stack.peek() != max) {
-            tmp.push(stack.pop());
-            helper.pop();
+            cur.push(stack.pop());
         }
         stack.pop();
-        helper.pop();
-        while (!tmp.isEmpty()) {
-            int x = tmp.pop();
-            pushHelper(x);
+        maxStack.pop();
+        while (!cur.isEmpty()) {
+            int x = cur.pop();
+            push(x);
         }
         return max;
     }
 }
+
 
 /**
  * Your MaxStack object will be instantiated and called as such:
