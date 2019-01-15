@@ -89,15 +89,22 @@ class Solution {
 
 // Method 3: use recursion
 
-class Solution {
-    public boolean isMatch(String s, String p) {
-        if (p.length() == 0)
-            return s.length() == 0;
-        boolean firstMatch = (s.length != 0 && s.charAt(0) == p.charAt(0) || p.charAt(0) == '.');
-        if (p.length() >= 2 && p.charAt(1) == '*') {
-            return (isMatch(s, p.substring(2)) || (firstMatch && isMatch(s.substring(1), p)));
-        } else {
-            return firstMatch && isMatch(s.substring(1), p.substring(1));
+public static boolean isMatch(String s, String t) {
+    if (t.length() == 0) {
+        return s.length() == 0;
+    }
+    if (t.length() > 1 && t.charAt(1) == '*') {  
+        if (isMatch(s, t.substring(2))) {
+            return true;
         }
+        if(s.length() > 0 && (t.charAt(0) == '.' || s.charAt(0) == t.charAt(0))) {
+            return isMatch(s.substring(1), t);
+        }
+        return false;
+    } else {                                     
+        if(s.length() > 0 && (t.charAt(0) == '.' || s.charAt(0) == t.charAt(0))) {
+            return isMatch(s.substring(1), t.substring(1));
+        }
+        return false;
     }
 }
