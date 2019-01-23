@@ -35,21 +35,19 @@ class Solution {
  *     TreeNode(int x) { val = x; }
  * }
  */
-class Solution {
-    public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
-        if (root == null)
-            return res;
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.empty()) {
+public List<Integer> preorderTraversal(TreeNode root) {
+    List<Integer> result = new ArrayList<>();
+    Deque<TreeNode> stack = new ArrayDeque<>();
+    TreeNode p = root;
+    while(!stack.isEmpty() || p != null) {
+        if(p != null) {
+            stack.push(p);
+            result.add(p.val);  // Add before going to children
+            p = p.left;
+        } else {
             TreeNode node = stack.pop();
-            res.add(node.val);
-            if (node.right != null)
-                stack.push(node.right);
-            if (node.left != null)
-                stack.push(node.left);
+            p = node.right;   
         }
-        return res;
     }
+    return result;
 }
