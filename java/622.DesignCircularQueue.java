@@ -2,7 +2,7 @@
 
 class MyCircularQueue {
 
-    int head, tail = -1, count = 0;
+    int head = 0, tail = -1, count = 0;
     final int[] arr;
     /** Initialize your data structure here. Set the size of the queue to be k. */
     public MyCircularQueue(int k) {
@@ -16,8 +16,6 @@ class MyCircularQueue {
         tail = (tail + 1) % arr.length;
         arr[tail] = value;
         count++;
-        if (head == -1)
-            head++;
         return true;
     }
     
