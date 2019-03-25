@@ -25,7 +25,6 @@ class MyCircularQueue {
     public boolean deQueue() {
         if (isEmpty()) 
             return false;
-        arr[head] = 0;
         head = (head + 1) % arr.length;
         count--;
         return true;
