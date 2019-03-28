@@ -1,4 +1,4 @@
-622 Design Circular Queue
+// Question 622 Design Circular Queue
 
 class MyCircularQueue {
 
